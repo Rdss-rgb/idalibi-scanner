@@ -2,163 +2,184 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>ID Alibi</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="shortcut icon" href="/assets/Images/loader-logo.svg" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>ID Alibi</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="shortcut icon" href="/assets/Images/loader-logo.svg" type="image/x-icon">
 </head>
 
 <body>
-    <div class="spinner-container">
-        <div class="circles1"></div>
-        <div class="circles2"></div>
-        <div class="spinner"></div>
+  <div class="spinner-container">
+    <div class="circles1"></div>
+    <div class="circles2"></div>
+    <div class="spinner"></div>
+  </div>
+  <div class="slider-main-wrappper">
+    <nav>
+      <img src="/assets/Images/page-logo.png" alt="" srcset="" id="full" onclick="openFullscreen()">
+    </nav>
+    <div class="slider-main-body">
+      <div class="circle"></div>
+      <div class="circle1"></div>
+      <div class="circle2"></div>
+      <div class="header-text">
+        Smart. <div class="center-blue-text">Trusted.</div> Reliable.
+      </div>
+      <div class="main-page">
+        <button type="button" class="btn" id="scan-btn">
+          <img src="./assets/Images/qr-code-scan-2-svgrepo-com.svg" alt="">
+          <h4>Scan QR Code</h4>
+        </button>
+        <div class="link-name"><a href="https://www.idalibi.com/">www.idalibi.com</a></div>
+
+      </div>
     </div>
-    <div class="slider-main-wrappper">
-        <nav>
-            <img src="/assets/Images/page-logo.png" alt="" srcset="" id="full" onclick="openFullscreen()">
-        </nav>
-        <div class="slider-main-body">
-            <div class="circle"></div>
-            <div class="circle1"></div>
-            <div class="circle2"></div>
-            <div class="header-text">
-                Smart. <div class="center-blue-text">Trusted.</div> Reliable.
-            </div>
-            <div class="main-page">
-                <button type="button" class="btn" id="scan-btn">
-                    <img src="./assets/Images/qr-code-scan-2-svgrepo-com.svg" alt="">
-                    <h4>Scan QR Code</h4>
-                </button>
-                <div class="link-name"><a href="https://www.idalibi.com/">www.idalibi.com</a></div>
-
-            </div>
-        </div>
+  </div>
+  <div class="slider-body">
+    <div class="spinner-container" id="switch">
+      <div class="circles1"></div>
+      <div class="circles2"></div>
+      <div class="spinner"></div>
     </div>
-    <div class="slider-body">
-        <div class="spinner-container" id="switch">
-            <div class="circles1"></div>
-            <div class="circles2"></div>
-            <div class="spinner"></div>
+    <nav>
+      <img src="/assets/Images/page-logo.png" alt="" srcset="">
+    </nav>
+    <section>
+      <div class="multi-step-container">
+        <div class="step-container" id="1" onclick="page(this)">
+          <span class="step-no active">1</span>
+          <p>SCAN QR</p>
         </div>
-        <nav>
-            <img src="/assets/Images/page-logo.png" alt="" srcset="">
-        </nav>
-        <section>
-            <div class="multi-step-container">
-                <div class="step-container" id="1" onclick="page(this)">
-                    <span class="step-no active">1</span>
-                    <p>SCAN QR</p>
-                </div>
-                <div class="step-container" id="2" onclick="page(this)">
-                    <span class="step-no">2</span>
-                    <p>FACE BIO</p>
-                </div>
-                <div class="step-container" id="3" onclick="page(this)">
-                    <span class="step-no">3</span>
-                    <p>VERIFY</p>
-                </div>
-            </div>
-        </section>
-        <div class="main-container">
-            <!-- * #First Panel-->
-            <div class="slide-container  hide-slider" id="first-panel">
-             
-                <!-- <div class="resultpage">
-                    <div><label>Result:</label></div>
-                    <div>
-                        <pre><div id="result" ></div></pre>
-                    </div>
-                </div> -->
-                <!-- * QR Scanner-->
-                <div class="qr-body">
-                    <div id="cameraSettingsId"  class="hide"></div>
-                    <div id="inputVideoDeviceInfosId"  class="hide"></div>
-                    <video id="videoId" autoplay="true" playsInline></video>
-                    <img alt="imgId" id="imgId"  class="hide">
-                    <select id="facingModeSelectId" name="facingMode" class="hide">
-                        <option value="ENVIRONMENT" selected="selected">environment</option>
-                        <option value="USER">user</option>
-                    </select>
-                    <button id="startDefaultAllButtonId" class="hide">startDefaultAll</button>
-                    <button id="startDefaultResolutionButtonId"  class="hide">startDefaultResolution</button>
-                    <button id="startMaxResolutionId"  class="hide">startMaxResolution</button>
-                    <button id="takePhotoButtonId"  class="hide">takePhoto</button>
-                    <button id="stopCameraButtonId"  class="hide">stopCamera</button>
-                    <button id="showInputVideoDeviceInfosButtonId"  class="hide">showInputVideoDeviceInfos</button>
-
-                    <!-- * Result modal -->
-                    <div class="camera-btn" id="cameraswitch">
-                        <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                            <g id="SVGRepo_iconCarrier">
-                                <path
-                                    d="M18.7153 1.71609C18.3241 1.32351 18.3241 0.687013 18.7153 0.294434C19.1066 -0.0981448 19.7409 -0.0981448 20.1321 0.294434L22.4038 2.57397L22.417 2.58733C23.1935 3.37241 23.1917 4.64056 22.4116 5.42342L20.1371 7.70575C19.7461 8.09808 19.1122 8.09808 18.7213 7.70575C18.3303 7.31342 18.3303 6.67733 18.7213 6.285L20.0018 5L4.99998 5C4.4477 5 3.99998 5.44772 3.99998 6V13C3.99998 13.5523 3.55227 14 2.99998 14C2.4477 14 1.99998 13.5523 1.99998 13V6C1.99998 4.34315 3.34313 3 4.99998 3H19.9948L18.7153 1.71609Z"
-                                    fill="#ffffff"></path>
-                                <path
-                                    d="M22 11C22 10.4477 21.5523 10 21 10C20.4477 10 20 10.4477 20 11V18C20 18.5523 19.5523 19 19 19L4.00264 19L5.28213 17.7161C5.67335 17.3235 5.67335 16.687 5.28212 16.2944C4.8909 15.9019 4.2566 15.9019 3.86537 16.2944L1.59369 18.574L1.58051 18.5873C0.803938 19.3724 0.805727 20.6406 1.58588 21.4234L3.86035 23.7058C4.25133 24.0981 4.88523 24.0981 5.2762 23.7058C5.66718 23.3134 5.66718 22.6773 5.2762 22.285L3.99563 21L19 21C20.6568 21 22 19.6569 22 18L22 11Z"
-                                    fill="#ffffff"></path>
-                            </g>
-                        </svg>
-                    </div>
-                </div>
-                <!-- * End Camera switcher -->
-
-                <!-- * Result modal -->
-                <div class="result-container">
-                    <svg width="100px" height="100px" viewBox="0 0 24 24" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                        <g id="SVGRepo_iconCarrier">
-                            <path opacity="0.5"
-                                d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
-                                fill="#58b526"></path>
-                            <path
-                                d="M16.0303 8.96967C16.3232 9.26256 16.3232 9.73744 16.0303 10.0303L11.0303 15.0303C10.7374 15.3232 10.2626 15.3232 9.96967 15.0303L7.96967 13.0303C7.67678 12.7374 7.67678 12.2626 7.96967 11.9697C8.26256 11.6768 8.73744 11.6768 9.03033 11.9697L10.5 13.4393L12.7348 11.2045L14.9697 8.96967C15.2626 8.67678 15.7374 8.67678 16.0303 8.96967Z"
-                                fill="#58b526"></path>
-                        </g>
-                    </svg>
-                    Scan Successful
-                </div>
-                <!-- * End Result modal -->
-                <!-- * End QR Scanner -->
-            </div>
-            <!-- * #Second Panel-->
-            <div class="slide-container hide-slider" id="second-panel">
-
-                <!-- * Face Scanner-->
-                <div id="container">
-                    <canvas class="center-block" id="canvasOutput" width=320 height=320></canvas>
-                </div>
-                <select id="videoDevices">
-                    <option disabled selected>Select video device</option>
-                </select>
-                <div>
-                    <video id="vid" style="display: none;">Your browser does not support the video tag.</video>
-                </div>
-                <!-- * End Face Scanner-->
-
-            </div>
-            <!-- * #Third Panel-->
-            <div class="slide-container hide-slider" id="third-panel">
-                <div class="center-body">
-                    Authenticating
-                    <div class="loader"></div>
-                </div>
-                <div class="success-page">
-                    <img src="/assets/Images/ey.jpg" alt="" srcset="" id="successimg">
-                    <p>Scanned Successfully!</p>
-                </div>
-            </div>
+        <div class="step-container" id="2" onclick="page(this)">
+          <span class="step-no">2</span>
+          <p>FACE BIO</p>
         </div>
+        <div class="step-container" id="3" onclick="page(this)">
+          <span class="step-no">3</span>
+          <p>VERIFY</p>
+        </div>
+      </div>
+    </section>
+    <div class="main-container">
+      <!-- * #First Panel-->
+      <div class="slide-container  hide-slider" id="first-panel">
+        <!-- * QR Scanner-->
+        <div class="qr-body">
+          <div id="cameraSettingsId" class="hide"></div>
+          <div id="inputVideoDeviceInfosId" class="hide"></div>
+          <canvas class="center-block" id="canvasqr" width=320 height=320></canvas>
+          <video id="videoId" autoplay="true" playsInline width=320 height=320 class="hide"></video>
+          <img alt="imgId" id="imgId" class="hide">
+          <select id="facingModeSelectId" name="facingMode" class="hide">
+            <option value="ENVIRONMENT" selected="selected">environment</option>
+            <option value="USER">user</option>
+          </select>
+          <button id="startDefaultAllButtonId" class="hide">startDefaultAll</button>
+          <button id="startDefaultResolutionButtonId" class="hide">startDefaultResolution</button>
+          <button id="startMaxResolutionId" class="hide">startMaxResolution</button>
+          <button id="takePhotoButtonId" class="hide">takePhoto</button>
+          <button id="stopCameraButtonId" class="hide">stopCamera</button>
+          <button id="showInputVideoDeviceInfosButtonId" class="hide">showInputVideoDeviceInfos</button>
+
+          <!-- * Result modal -->
+          <div class="camera-btn" id="cameraswitch">
+            <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <path
+                  d="M18.7153 1.71609C18.3241 1.32351 18.3241 0.687013 18.7153 0.294434C19.1066 -0.0981448 19.7409 -0.0981448 20.1321 0.294434L22.4038 2.57397L22.417 2.58733C23.1935 3.37241 23.1917 4.64056 22.4116 5.42342L20.1371 7.70575C19.7461 8.09808 19.1122 8.09808 18.7213 7.70575C18.3303 7.31342 18.3303 6.67733 18.7213 6.285L20.0018 5L4.99998 5C4.4477 5 3.99998 5.44772 3.99998 6V13C3.99998 13.5523 3.55227 14 2.99998 14C2.4477 14 1.99998 13.5523 1.99998 13V6C1.99998 4.34315 3.34313 3 4.99998 3H19.9948L18.7153 1.71609Z"
+                  fill="#ffffff"></path>
+                <path
+                  d="M22 11C22 10.4477 21.5523 10 21 10C20.4477 10 20 10.4477 20 11V18C20 18.5523 19.5523 19 19 19L4.00264 19L5.28213 17.7161C5.67335 17.3235 5.67335 16.687 5.28212 16.2944C4.8909 15.9019 4.2566 15.9019 3.86537 16.2944L1.59369 18.574L1.58051 18.5873C0.803938 19.3724 0.805727 20.6406 1.58588 21.4234L3.86035 23.7058C4.25133 24.0981 4.88523 24.0981 5.2762 23.7058C5.66718 23.3134 5.66718 22.6773 5.2762 22.285L3.99563 21L19 21C20.6568 21 22 19.6569 22 18L22 11Z"
+                  fill="#ffffff"></path>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <!-- * End Camera switcher -->
+
+        <!-- * Result modal -->
+        <div class="result-container">
+          <svg width="100px" height="100px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <path opacity="0.5"
+                d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
+                fill="#58b526"></path>
+              <path
+                d="M16.0303 8.96967C16.3232 9.26256 16.3232 9.73744 16.0303 10.0303L11.0303 15.0303C10.7374 15.3232 10.2626 15.3232 9.96967 15.0303L7.96967 13.0303C7.67678 12.7374 7.67678 12.2626 7.96967 11.9697C8.26256 11.6768 8.73744 11.6768 9.03033 11.9697L10.5 13.4393L12.7348 11.2045L14.9697 8.96967C15.2626 8.67678 15.7374 8.67678 16.0303 8.96967Z"
+                fill="#58b526"></path>
+            </g>
+          </svg>
+          Scan Successful
+        </div>
+        <!-- * End Result modal -->
+        
+        <!-- * End QR Scanner -->
+      </div>
+      <!-- * #Second Panel-->
+      <div class="slide-container hide-slider" id="second-panel">
+        <div class="hide">
+          <input type="checkbox" id="face" name="classifier" value="face" checked>
+          <label for="face">face</label>
+        </div>
+
+        <!-- * Face Scanner-->
+        <div id="container1">
+          <canvas class="center-block" id="canvasOutput" width=320 height=320
+            style="max-height: 320px; max-width: 320px;"></canvas>
+          <h3 style="display:block;" id="get-closer">Get closer</h3>
+        </div>
+        <select id="videoDevices">
+          <option disabled selected>Select video device</option>
+        </select>
+        <div>
+          <video id="vid" style="display: none;">Your browser does not support the video tag.</video>
+        </div>
+        <!-- * End Face Scanner-->
+
+      </div>
+      <!-- * #Third Panel-->
+      <div class="slide-container hide-slider" id="third-panel">
+        <div class="center-body">
+          Authenticating
+          <div class="loader"></div>
+        </div>
+        <div class="success-page">
+          <img src="/assets/Images/ey.jpg" alt="" srcset="" id="successimg">
+          <p>Identity Verified!</p>
+        </div>
+      </div>
     </div>
+  </div>
 </body>
 <script src="https://unpkg.com/@zxing/library@latest"></script>
 <script src="/assets/js/lib/jslib-html5-camera-photo.min.js"></script>
 <script src="/assets/js/app.js"></script>
 <script src="/assets/js/qr.js"></script>
+<script src="/assets/js/face.js"></script>
+
+
+
+<!-- <script src="/assets/cv/libs/adapter-latest.js"></script> -->
+<script src="/assets/cv/libs/stats.min.js"></script>
+<script src="/assets/cv/libs/dat.gui.min.js"></script>
+<script src="/assets/cv/libs/utils.js"></script>
+
+<script>
+  var Module = {
+    wasmBinaryFile: '/assets/cv/build/wasm/opencv_js.wasm',
+    preRun: [function () {
+      // Module.FS_createPreloadedFile('/', 'haarcascade_eye.xml', '../data/haarcascade_eye.xml', true, false);
+      Module.FS_createPreloadedFile('/', 'haarcascade_frontalface_default.xml', '/assets/cv/data/haarcascade_frontalface_default.xml', true, false);
+      Module.FS_createPreloadedFile('/', 'haarcascade_profileface.xml', '/assets/cv/data/haarcascade_profileface.xml', true, false);
+    }],
+    // _main: function() {runcamera();}
+  };
+</script>
+<script async src="/assets/cv/build/wasm/opencv.js"></script>
 
 </html>

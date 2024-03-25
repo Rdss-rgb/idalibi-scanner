@@ -10,9 +10,9 @@
   scroll-behavior: smooth;
 
 }
-html{
-    /* overflow-y: hidden; */
-}
+/* html{
+    /* overflow-y: hidden; 
+}*/
 .btn-action {
   position: absolute;
   bottom: 0;
@@ -416,6 +416,9 @@ justify-content: center;
     height: 100%;
     border-radius: 30px;
     animation: moving 1s ease-in-out infinite;
+  }
+  .canvasface {
+    position: absolute;
   }
   .spinner-container{
     width: 100%;
