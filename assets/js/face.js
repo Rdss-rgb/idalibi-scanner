@@ -75,7 +75,7 @@ async function runcamera(){
 }
 
 
-
+var faceb64 = "";
 
 
 function draw(canvasOutputCtx,canvasInputCtx) {
@@ -114,7 +114,7 @@ function draw(canvasOutputCtx,canvasInputCtx) {
             faceClassifier.detectMultiScale(faceMat, faceVect);
              // TODO get the largest face
             var largestFaceSize = -1;
-            var largestFace = -1;
+            var largestFace = null;
             for (let i = 0; i < faceVect.size(); i++) {
                 let face = faceVect.get(i);
                 faces.push(new cv.Rect(face.x, face.y, face.width, face.height));
@@ -122,7 +122,7 @@ function draw(canvasOutputCtx,canvasInputCtx) {
                 let faceSize = (face.height > face.width) ? face.height : face.width
                 if (faceSize > largestFaceSize) {
                     largestFaceSize = faceSize;
-                  
+                    largestFace = face;
                 }
             }
             if (faces.length > 0) {
@@ -132,12 +132,24 @@ function draw(canvasOutputCtx,canvasInputCtx) {
             // document.getElementById("get-closer").innerText = largestFaceSize;
             if (largestFaceSize >= 60) {  // TODO check the neural network input size
                // TODO hide message
-               var image =canvasOutput.toDataURL("image/png", 1.0).replace("image/png", "image/octet-stream");
-               var link = document.createElement('a');
-               link.download = "face.png";
-               link.href = image;
-               link.click();
-               document.getElementById("get-closer").style.display = "none";
+            //    var image =canvasOutput.toDataURL("image/png", 1.0).replace("image/png", "image/octet-stream");
+            //    var link = document.createElement('a');
+            //    link.download = "face.png";
+            //    link.href = image;
+            //    link.click();
+
+                // get the face data
+                let faceImageData = canvasOutputCtx.getImageData(largestFace.x*4, largestFace.y*4, largestFace.width*4, largestFace.height*4)
+
+                let faceCanvas = document.createElement("canvas");
+                faceCanvas.width = largestFace.width*4;
+                faceCanvas.height = largestFace.height*4;
+                let faceCanvasContext = faceCanvas.getContext("2d");
+                faceCanvasContext.putImageData(faceImageData, 0, 0);
+
+                faceb64 = faceCanvas.toDataURL("image/jpeg").replace("data:image/jpeg;base64,", "");
+                
+                document.getElementById("get-closer").style.display = "none";
                  var panel='third-panel';
                 for (let i = 0; i < spannum.length; i++) {
                     spannum[2].innerText='3'
@@ -156,20 +168,36 @@ function draw(canvasOutputCtx,canvasInputCtx) {
                 });
                 for (let i = 0; i < stepcontainer.length; i++) {
                     stepcontainer[i].classList.add('act')   
-            }
+                }
                 centbody.style.display="flex";
-                setInterval(() => {
-                    centbody.style.display="none";
-                }, 2000);    
-                setInterval(() => {
+
+             
+
+
+                centbody.style.display="none";
+                fetch("http://192.168.148.247:8080/api/login",{
+                    method: "POST",
+                    headers: {
+                    "Content-Type": "application/json",  
+                    },
+                    "body": JSON.stringify({"face":faceb64, "qr":qrb64})
+                }).then(data => {
                     successbody.style.opacity='1';
                     successimg.style.display='flex';
-                }, 2000); 
-               stopCamera()
+                })   .catch((error) => {
+                    console.error('error', error);
+                    alert(error)
+                });
+                // setInterval(() => {
+                // }, 2000);
+                // setInterval(() => {
+                // }, 2000); 
+                stopCamera()
             } else {
                 // TODO display message
                 document.getElementById("get-closer").style.display = "block";
             }
+            stopCamera()
 
         //     faceMat.delete();
         //     faceVect.delete();
