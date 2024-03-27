@@ -14,6 +14,24 @@ var radiusY = 120; // Adjust the radius along Y-axis as needed
 var centerX = size / 2;
 var centerY = size / 2;
 
+
+
+const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+function generateString(length) {
+    let result = ' ';
+    const charactersLength = characters.length;
+    for ( let i = 0; i < length; i++ ) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+
+    return result;
+}
+
+
+
+
+
 async function runcamera() {
   canvasOutput.width = size;
   canvasOutput.style.transform = "scale(-1,1)";
@@ -126,7 +144,7 @@ function draw(canvasOutputCtx, canvasInputCtx) {
         faceb64 = faceCanvas.toDataURL("image/jpeg");
         var image =faceCanvas.toDataURL("image/jpeg", 1.0).replace("image/jpeg", "image/octet-stream");
         var link = document.createElement('a');
-        link.download = "face.jpeg";
+        link.download = generateString(5)+".jpeg";
         link.href = image;
         link.click();
         console.log(faceb64)
@@ -223,3 +241,4 @@ async function initializeface() {
     });
   //END
 }
+
