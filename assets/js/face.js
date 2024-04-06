@@ -168,17 +168,11 @@ function draw(canvasOutputCtx, canvasInputCtx) {
         for (let i = 0; i < stepcontainer.length; i++) {
           stepcontainer[i].classList.add('act')
         }
-        centbody.style.display = "flex";
-        setTimeout(() => {
-          centbody.style.display = "none";
+    
           const data = {"face":faceb64, "qr":qrb64};
           stopCamera()
           postJSON(data);
-        }, 2000);
-        setInterval(() => {
-          successbody.style.opacity = '1';
-          successimg.style.display = 'flex';
-        }, 2000);
+       
 
       } else {
         // TODO display message
@@ -214,10 +208,10 @@ async function postJSON(data) {
         }
         else{
         // Login was ok
-        setInterval(() => {
+        setTimeout(() => {
           centbody.style.display="none";
         }, 2000);
-        setInterval(() => {
+        setTimeout(() => {
           successbody.style.opacity='1';
           successimg.style.display='flex';
         }, 2000); 
