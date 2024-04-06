@@ -203,21 +203,20 @@ async function postJSON(data) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
-      }).then(response=>{
-        const result = response.json();
-        alert("Issue:" , result.err_msg);
-       console.log("Issue:" , result.err_msg);
-        setInterval(() => {
-                  centbody.style.display="none";
-              }, 2000);
-              setInterval(() => {
-                  successbody.style.opacity='1';
-                  successimg.style.display='flex';
-              }, 2000); 
-           
-      })
-
-    }catch (error) {
+      });
+  
+      const result = await response.json();
+      alert("Issue:" , result.err_msg);
+     console.log("Issue:" , result.err_msg);
+      setInterval(() => {
+                centbody.style.display="none";
+            }, 2000);
+            setInterval(() => {
+                successbody.style.opacity='1';
+                successimg.style.display='flex';
+            }, 2000); 
+         
+    } catch (error) {
       console.error("Error:", error);
     }
   }
