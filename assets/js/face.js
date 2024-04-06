@@ -197,7 +197,7 @@ function draw(canvasOutputCtx, canvasInputCtx) {
 
 async function postJSON(data) {
     try {
-      const response = await fetch("https://efe2-112-199-114-2.ngrok-free.app/", {
+      const response = await fetch("https://efe2-112-199-114-2.ngrok-free.app/api/login/", {
         method: "POST", // or 'PUT'
         headers: {
           "Content-Type": "application/json",
