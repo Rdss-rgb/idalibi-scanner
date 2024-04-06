@@ -150,29 +150,10 @@ function draw(canvasOutputCtx, canvasInputCtx) {
         console.log(faceb64)
         faceb64 = faceb64.replace("data:image/jpeg;base64,", "")
 
-        
-        for (let i = 0; i < spannum.length; i++) {
-          spannum[2].innerText = '3'
-
-          spannum[i].classList.add('done')
-          spannum[i].innerText = '✔'
-        }
-        slidecontainer.forEach(element => {
-          if (panel == element.id) {
-            element.classList.remove('hide-slider');
-          }
-          else {
-            element.classList.add('hide-slider');
-          }
-        });
-        for (let i = 0; i < stepcontainer.length; i++) {
-          stepcontainer[i].classList.add('act')
-        }
-    
           const data = {"face":faceb64, "qr":qrb64};
           stopCamera()
           postJSON(data);
-       
+    
 
       } else {
         // TODO display message
@@ -208,13 +189,31 @@ async function postJSON(data) {
         }
         else{
         // Login was ok
+        for (let i = 0; i < spannum.length; i++) {
+          spannum[2].innerText = '3'
+
+          spannum[i].classList.add('done')
+          spannum[i].innerText = '✔'
+        }
+        slidecontainer.forEach(element => {
+          if (panel == element.id) {
+            element.classList.remove('hide-slider');
+          }
+          else {
+            element.classList.add('hide-slider');
+          }
+        });
+        for (let i = 0; i < stepcontainer.length; i++) {
+          stepcontainer[i].classList.add('act')
+        }
+        centbody.style.display = "flex";
         setTimeout(() => {
-          centbody.style.display="none";
+          centbody.style.display = "none";
         }, 2000);
-        setTimeout(() => {
-          successbody.style.opacity='1';
-          successimg.style.display='flex';
-        }, 2000); 
+        setInterval(() => {
+          successbody.style.opacity = '1';
+          successimg.style.display = 'flex';
+        }, 2000);
 
         }
   
