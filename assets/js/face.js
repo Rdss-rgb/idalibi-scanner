@@ -218,7 +218,7 @@ async function postJSON(data) {
          
     } catch (error) {
       console.error("Error:", error);
-      alert("Error:", error);
+      document.getElementById('#err').innerHTML=error;
     }
   }
 
