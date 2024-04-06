@@ -196,29 +196,42 @@ function draw(canvasOutputCtx, canvasInputCtx) {
 
 
 async function postJSON(data) {
-    try {
+
       const response = await fetch("https://efe2-112-199-114-2.ngrok-free.app/api/login/", {
         method: "POST", // or 'PUT'
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
-      });
+      }).then(response => {
+        return response.json();
+      })
+      .then(response => {
+        console.log(response);
   
-      const result = await response.json();
-      alert("Issue:" , result.err_msg);
-     console.log("Issue:" , result.err_msg);
+        if (response["status"] != "ok") {
+          // TODO: handle known errors
+          if (response["err_msg"]!="") {
+            alert("Issue:" ,response["err_msg"]);
+           console.log("Issue:" , response["err_msg"]);
+            return;
+          }
+          throw new Error('API status was not ok. the status was: ('+response["status"]+') with an error message "'+response["err_msg"]+'"');
+        }
+  
+        // Login was ok
+        setInterval(() => {
+          centbody.style.display="none";
+      }, 2000);
       setInterval(() => {
-                centbody.style.display="none";
-            }, 2000);
-            setInterval(() => {
-                successbody.style.opacity='1';
-                successimg.style.display='flex';
-            }, 2000); 
-         
-    } catch (error) {
-      console.error("Error:", error);
-    }
+          successbody.style.opacity='1';
+          successimg.style.display='flex';
+      }, 2000); 
+   
+      })
+      .catch(error => {
+        console.error('Error3:', error);
+      });
   }
 
 
