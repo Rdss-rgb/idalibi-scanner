@@ -186,6 +186,7 @@ async function postJSON(data) {
   
         if (response["status"] != "ok") {
             console.log("Issue:" , response["err_msg"]);
+            alert("PIZZAAAAAA:" , response["err_msg"])
         }
         else{
         // Login was ok
