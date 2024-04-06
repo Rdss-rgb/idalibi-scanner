@@ -210,24 +210,22 @@ async function postJSON(data) {
         console.log(response);
   
         if (response["status"] != "ok") {
-          // TODO: handle known errors
-          if (response["err_msg"]!="") {
-            alert("Issue:" ,response["err_msg"]);
-           console.log("Issue:" , response["err_msg"]);
+            console.log("Issue:" , response["err_msg"]);
             return;
-          }
-          throw new Error('API status was not ok. the status was: ('+response["status"]+') with an error message "'+response["err_msg"]+'"');
         }
-  
+        else{
         // Login was ok
         setInterval(() => {
           centbody.style.display="none";
-      }, 2000);
-      setInterval(() => {
+        }, 2000);
+        setInterval(() => {
           successbody.style.opacity='1';
           successimg.style.display='flex';
-      }, 2000); 
-   
+        }, 2000); 
+
+        }
+  
+       
       })
       .catch(error => {
         console.error('Error3:', error);
