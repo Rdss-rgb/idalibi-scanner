@@ -211,7 +211,6 @@ async function postJSON(data) {
   
         if (response["status"] != "ok") {
             console.log("Issue:" , response["err_msg"]);
-            return;
         }
         else{
         // Login was ok
@@ -228,7 +227,7 @@ async function postJSON(data) {
        
       })
       .catch(error => {
-        console.error('Error3:', error);
+        console.error('Error:', error);
       });
   }
 
