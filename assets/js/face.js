@@ -142,18 +142,43 @@ function draw(canvasOutputCtx, canvasInputCtx) {
         faceCanvasContext.putImageData(faceImageData, 0, 0);
 
         faceb64 = faceCanvas.toDataURL("image/jpeg");
-        var image =faceCanvas.toDataURL("image/jpeg", 1.0).replace("image/jpeg", "image/octet-stream");
-        var link = document.createElement('a');
-        link.download = generateString(5)+".jpeg";
-        link.href = image;
-        link.click();
+        // var image =faceCanvas.toDataURL("image/jpeg", 1.0).replace("image/jpeg", "image/octet-stream");
+        // var link = document.createElement('a');
+        // link.download = generateString(5)+".jpeg";
+        // link.href = image;
+        // link.click();
         console.log(faceb64)
         faceb64 = faceb64.replace("data:image/jpeg;base64,", "")
 
+        
+        for (let i = 0; i < spannum.length; i++) {
+          spannum[2].innerText = '3'
+
+          spannum[i].classList.add('done')
+          spannum[i].innerText = '✔'
+        }
+        slidecontainer.forEach(element => {
+          if (panel == element.id) {
+            element.classList.remove('hide-slider');
+          }
+          else {
+            element.classList.add('hide-slider');
+          }
+        });
+        for (let i = 0; i < stepcontainer.length; i++) {
+          stepcontainer[i].classList.add('act')
+        }
+        centbody.style.display = "flex";
+        setTimeout(() => {
+          centbody.style.display = "none";
           const data = {"face":faceb64, "qr":qrb64};
           stopCamera()
           postJSON(data);
-    
+        }, 2000);
+        setInterval(() => {
+          successbody.style.opacity = '1';
+          successimg.style.display = 'flex';
+        }, 2000);
 
       } else {
         // TODO display message
@@ -186,35 +211,17 @@ async function postJSON(data) {
   
         if (response["status"] != "ok") {
             console.log("Issue:" , response["err_msg"]);
-            alert("PIZZAAAAAA:" , response["err_msg"])
+            return;
         }
         else{
         // Login was ok
-        for (let i = 0; i < spannum.length; i++) {
-          spannum[2].innerText = '3'
-
-          spannum[i].classList.add('done')
-          spannum[i].innerText = '✔'
-        }
-        slidecontainer.forEach(element => {
-          if (panel == element.id) {
-            element.classList.remove('hide-slider');
-          }
-          else {
-            element.classList.add('hide-slider');
-          }
-        });
-        for (let i = 0; i < stepcontainer.length; i++) {
-          stepcontainer[i].classList.add('act')
-        }
-        centbody.style.display = "flex";
-        setTimeout(() => {
-          centbody.style.display = "none";
+        setInterval(() => {
+          centbody.style.display="none";
         }, 2000);
         setInterval(() => {
-          successbody.style.opacity = '1';
-          successimg.style.display = 'flex';
-        }, 2000);
+          successbody.style.opacity='1';
+          successimg.style.display='flex';
+        }, 2000); 
 
         }
   
