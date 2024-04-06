@@ -211,6 +211,7 @@ async function postJSON(data) {
   
         if (response["status"] != "ok") {
             console.log("Issue:" , response["err_msg"]);
+            alert("ERROR: "+response["err_msg"])
             return;
         }
         else{
