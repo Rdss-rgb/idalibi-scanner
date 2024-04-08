@@ -32,7 +32,7 @@ window.addEventListener('load', function () {
             buf.push(`${i}: ${v.getCapabilities().aspectRatio[i]}`);
           }
           return buf.join("\n");
-        }
+        }()
         alert(`aspectRatio: ${aspectRation}`)
         
         console.log("V: ", v.getCapabilities().facingMode)
