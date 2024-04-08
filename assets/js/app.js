@@ -119,6 +119,8 @@ function startCameraDefaultResolution() {
   // var idealResolution = { width: 320, height: 320 };
   let deviceId = cameraInputs[selectedCameraIndex].deviceId;
   // cameraPhoto.startCamera(FACING_MODES[facingMode], idealResolution)
+  videoElement.width = cameraInputs[selectedCameraIndex].getCapabilities().width.max;
+  videoElement.height = cameraInputs[selectedCameraIndex].getCapabilities().height.max;
   cameraPhoto.startCamera(deviceId)
     .then(() => {
       var log =
