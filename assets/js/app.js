@@ -229,6 +229,7 @@ let slidermain = document.querySelector('.slider-body');
 let spinnermain = document.querySelector('.spinner-container');
 let centbody = document.querySelector('.center-body');
 let successbody = document.querySelector('.success-page');
+let failbody = document.querySelector('.fail-page');
 let nav = document.querySelector('nav');
 let spannum = document.querySelectorAll('.step-no');
 let stepcontainer = document.querySelectorAll('.step-container');

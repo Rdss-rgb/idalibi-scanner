@@ -212,9 +212,11 @@ async function postJSON(data) {
         if (response["status"] != "ok") {
             console.log("Issue:" , response["err_msg"]);
             alert("ERROR: "+response["err_msg"])
+            document.getElementById("err-msg").innerText = response["err_msg"];
+            failbody.style.opacity='1';
+            failbody.style.display='flex';
             return;
-        }
-        else{
+        } else {
         // Login was ok
         // setInterval(() => {
           // centbody.style.display="none";
