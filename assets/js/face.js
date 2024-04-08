@@ -150,14 +150,13 @@ function draw(canvasOutputCtx, canvasInputCtx) {
         console.log(faceb64)
         faceb64 = faceb64.replace("data:image/jpeg;base64,", "")
 
-        for (let i = 0; i < spannum.length; i++) {
-          spannum[2].innerText = '3'
+        
+        // for (let i = 0; i < spannum.length; i++) {
+        //   spannum[2].innerText = '3'
 
-          spannum[i].classList.add('done')
-          spannum[i].style.bacgroundColor='red';
-          spannum[i].innerText = 'x'
-        }
-    
+        //   spannum[i].classList.add('done')
+        //   spannum[i].innerText = '✔'
+        // }
         slidecontainer.forEach(element => {
           if (panel == element.id) {
             element.classList.remove('hide-slider');
@@ -214,9 +213,8 @@ async function postJSON(data) {
           for (let i = 0; i < spannum.length; i++) {
             spannum[2].innerText = '3'
   
-            spannum[i].classList.add('done')
-            spannum[i].style.bacgroundColor='red';
-            spannum[i].innerText = 'x'
+            spannum[2].style.backgroundColor='red'
+            spannum[2].innerText = 'x'
           }
             console.log("Issue:" , response["err_msg"]);
             alert("ERROR: "+response["err_msg"])
@@ -230,6 +228,12 @@ async function postJSON(data) {
           // centbody.style.display="none";
         // }, 2000);
         // setInterval(() => {
+          for (let i = 0; i < spannum.length; i++) {
+            spannum[2].innerText = '3'
+  
+            spannum[i].classList.add('done')
+            spannum[i].innerText = '✔'
+          }
           successbody.style.opacity='1';
           successimg.style.display='flex';
         // }, 2000); 
