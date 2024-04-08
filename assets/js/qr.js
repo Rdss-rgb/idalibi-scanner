@@ -193,8 +193,8 @@ function switchcamera() {
   alert("cameraInputs.label: " + cameraInputs[selectedCameraIndex].label);
   let aspectRatio = function() {
     var buf = [];
-    for (i in v.getCapabilities().aspectRatio) {
-      buf.push(`${i}: ${v.getCapabilities().aspectRatio[i]}`);
+    for (i in cameraInputs[selectedCameraIndex].getCapabilities().aspectRatio) {
+      buf.push(`${i}: ${cameraInputs[selectedCameraIndex].getCapabilities().aspectRatio[i]}`);
     }
     return buf.join("\n");
   }()
