@@ -214,7 +214,7 @@ async function postJSON(data) {
             alert("ERROR: "+response["err_msg"])
             document.getElementById("err-msg").innerText = response["err_msg"];
             failbody.style.opacity='1';
-            failbody.style.display='flex';
+            failimg.style.display='flex';
             return;
         } else {
         // Login was ok

@@ -234,6 +234,7 @@ let nav = document.querySelector('nav');
 let spannum = document.querySelectorAll('.step-no');
 let stepcontainer = document.querySelectorAll('.step-container');
 let successimg = document.getElementById('successimg');
+let failimg = document.getElementById('failimg');
 const elem = document.getElementsByTagName('html')[0];
 let fullscreen = document.getElementById('full');
 var vid_track;
