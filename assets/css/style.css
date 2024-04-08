@@ -418,6 +418,7 @@ justify-content: center;
   #err-msg{
     width: 90%;
     text-wrap:wrap;
+    text-align: center;
   }
   
   .loader {
