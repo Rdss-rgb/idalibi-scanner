@@ -189,7 +189,7 @@ camera.addEventListener('click', () => {
 
 })
 function switchcamera() {
-  var selectedCameraIndex = (selectedCameraIndex+1)%cameraInputs.length; // Toggle between 0 and 1
+  selectedCameraIndex = (selectedCameraIndex+1)%cameraInputs.length; // Toggle between 0 and 1
   alert("cameraInputs.label: " + cameraInputs[selectedCameraIndex].label);
   let aspectRatio = function() {
       return cameraInputs[selectedCameraIndex].getCapabilities().aspectRatio[i]
