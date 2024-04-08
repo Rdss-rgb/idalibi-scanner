@@ -388,6 +388,21 @@ justify-content: center;
     color: #686868;
     transition: 500ms ease-in-out;
   }
+  .fail-page
+  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    gap: 0.3rem;
+    color: #686868;
+    transition: 500ms ease-in-out;
+  }
 #successimg{
     min-width: 300px;
     max-width: 95%;
