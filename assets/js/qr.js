@@ -24,9 +24,10 @@ window.addEventListener('load', function () {
         if (v.kind != "videoinput") {
           return;
         }
+        alert("kind " + v.kind)
         alert(`facingMode: ${v.getCapabilities().facingMode}`)
-        alert(`facingMode: ${v.getCapabilities().aspectRatio}`)
-        // alert("kind " + v.kind)
+        alert(`aspectRatio: ${v.getCapabilities().aspectRatio}`)
+        
         console.log("V: ", v.getCapabilities().facingMode)
         console.log("Cameras: ", cameraInputs)
         cameraInputs.push(v);
