@@ -192,7 +192,11 @@ function switchcamera() {
   selectedCameraIndex = (selectedCameraIndex+1)%cameraInputs.length; // Toggle between 0 and 1
   alert("cameraInputs.label: " + cameraInputs[selectedCameraIndex].label);
   let aspectRatio = function() {
-      return cameraInputs[selectedCameraIndex].getCapabilities().aspectRatio[i]
+    var buf = [];
+    for (i in v.getCapabilities().aspectRatio) {
+      buf.push(`${i}: ${v.getCapabilities().aspectRatio[i]}`);
+    }
+    return buf.join("\n");
   }()
   alert("aspectRatio: " + aspectRatio);
   startCameraDefaultResolution()
