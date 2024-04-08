@@ -150,13 +150,14 @@ function draw(canvasOutputCtx, canvasInputCtx) {
         console.log(faceb64)
         faceb64 = faceb64.replace("data:image/jpeg;base64,", "")
 
-        
         for (let i = 0; i < spannum.length; i++) {
           spannum[2].innerText = '3'
 
           spannum[i].classList.add('done')
-          spannum[i].innerText = '✔'
+          spannum[i].style.bacgroundColor='red';
+          spannum[i].innerText = 'x'
         }
+    
         slidecontainer.forEach(element => {
           if (panel == element.id) {
             element.classList.remove('hide-slider');
@@ -210,6 +211,13 @@ async function postJSON(data) {
         console.log(response);
   
         if (response["status"] != "ok") {
+          for (let i = 0; i < spannum.length; i++) {
+            spannum[2].innerText = '3'
+  
+            spannum[i].classList.add('done')
+            spannum[i].style.bacgroundColor='red';
+            spannum[i].innerText = 'x'
+          }
             console.log("Issue:" , response["err_msg"]);
             alert("ERROR: "+response["err_msg"])
             document.getElementById("err-msg").innerText = response["err_msg"];
