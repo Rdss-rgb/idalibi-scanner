@@ -115,9 +115,11 @@ function draw1(canvasqrCtx, canvasqrInputCtx) {
 // if the environment facingMode is not avalible, it will fallback
 // to the default camera avalible.
 function startCameraDefaultResolution() {
-  var facingMode = facingModeSelectElement.value;
-  var idealResolution = { width: 320, height: 320 };
-  cameraPhoto.startCamera(FACING_MODES[facingMode], idealResolution)
+  // var facingMode = facingModeSelectElement.value;
+  // var idealResolution = { width: 320, height: 320 };
+  let deviceId = cameraInputs[selectedCameraIndex].deviceId;
+  // cameraPhoto.startCamera(FACING_MODES[facingMode], idealResolution)
+  cameraPhoto.startCamera(deviceId)
     .then(() => {
       var log =
         `Camera started with default resolution and ` +

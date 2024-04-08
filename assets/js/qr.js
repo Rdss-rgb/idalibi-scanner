@@ -196,9 +196,9 @@ function switchcamera() {
   }()
   alert("aspectRatio: " + aspectRatio);
   startCameraDefaultResolution()
-  // setTimeout(() => {
-  //   document.querySelector('#switch').style.display = 'none';
-  // }, 800);
+  setTimeout(() => {
+    document.querySelector('#switch').style.display = 'none';
+  }, 800);
 
 
   // var selectElement = document.getElementById("facingModeSelectId");
