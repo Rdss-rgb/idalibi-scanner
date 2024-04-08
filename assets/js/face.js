@@ -211,9 +211,10 @@ async function postJSON(data) {
   
         if (response["status"] != "ok") {
           for (let i = 0; i < spannum.length; i++) {
-            spannum[2].innerText = '3'
-  
-            spannum[2].style.backgroundColor='red'
+            spannum[i].classList.add('done')
+            spannum[i].innerText = '✔'
+            spannum[2].style.backgroundColor='#af1d1d'
+            spannum[2].style.color='white';
             spannum[2].innerText = 'x'
           }
             console.log("Issue:" , response["err_msg"]);
