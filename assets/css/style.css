@@ -411,9 +411,13 @@ justify-content: center;
   }
   #failimg{
     min-width: 300px;
-    max-width: 95%;
+    max-width: 75%;
     width: 100%;
     display: none;
+  }
+  #err-msg{
+    width: 90%;
+    text-wrap:wrap;
   }
   
   .loader {
