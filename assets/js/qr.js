@@ -21,15 +21,18 @@ window.addEventListener('load', function () {
     .then(devices => {
       console.log(devices)
       devices.forEach((v, k) => {
+        if (v.kind != "videoinput") {
+          return;
+        }
+        alert(`facingMode: ${v.getCapabilities().facingMode}`)
+        alert(`facingMode: ${v.getCapabilities().aspectRatio}`)
         // alert("kind " + v.kind)
-        if (v.kind == "videoinput") {
-          console.log("V: ", v.getCapabilities().facingMode)
-          console.log("Cameras: ", cameraInputs)
-          cameraInputs.push(v);
-          if (v.getCapabilities().facingMode.findIndex((element) => element == defaultCamera) != -1) {
-            selectedCameraIndex = cameraInputs.length - 1;
-            localStorage.setItem("deviceID", cameraInputs[selectedCameraIndex]);
-          }
+        console.log("V: ", v.getCapabilities().facingMode)
+        console.log("Cameras: ", cameraInputs)
+        cameraInputs.push(v);
+        if (v.getCapabilities().facingMode.findIndex((element) => element == defaultCamera) != -1) {
+          selectedCameraIndex = cameraInputs.length - 1;
+          localStorage.setItem("deviceID", cameraInputs[selectedCameraIndex]);
         }
       });
       console.log(cameraInputs);
