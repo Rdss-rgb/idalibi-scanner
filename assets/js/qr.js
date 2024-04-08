@@ -1,5 +1,6 @@
 //qr scanner
 var camera = document.querySelector('#cameraswitch');
+let cameraInputsMap = {};
 let cameraInputs = [];
 var selectedCameraIndex = -1;
 var defaultCamera = "environment"; //"environment" or "user";
@@ -36,13 +37,28 @@ window.addEventListener('load', function () {
         alert(`aspectRatio: ${aspectRatio}`)
         
         console.log("V: ", v.getCapabilities().facingMode)
-        console.log("Cameras: ", cameraInputs)
-        cameraInputs.push(v);
-        if (v.getCapabilities().facingMode.findIndex((element) => element == defaultCamera) != -1) {
-          selectedCameraIndex = cameraInputs.length - 1;
-          localStorage.setItem("deviceID", cameraInputs[selectedCameraIndex]);
+        if (cameraInputsMap[v.getCapabilities().facingMode] == undefined) {
+          cameraInputsMap[v.getCapabilities().facingMode] = v;
+          if (v.getCapabilities().facingMode.findIndex((element) => element == defaultCamera) != -1) {
+            selectedCameraIndex = cameraInputs.length - 1;
+            localStorage.setItem("deviceID", cameraInputs[selectedCameraIndex]);
+          }
+        } else {
+          if (cameraInputsMap[v.getCapabilities().facingMode].getCapabilities().aspectRatio.max < v.getCapabilities().aspectRatio.max) {
+            cameraInputsMap[v.getCapabilities().facingMode] = v;
+            if (v.getCapabilities().facingMode.findIndex((element) => element == defaultCamera) != -1) {
+              selectedCameraIndex = cameraInputs.length - 1;
+              localStorage.setItem("deviceID", cameraInputs[selectedCameraIndex]);
+            }
+          }
         }
+        console.log("Cameras: ", cameraInputs)
+        // cameraInputs.push(v);
       });
+
+      for (i in cameraInputsMap) {
+        cameraInputs.push(cameraInputsMap[i]);
+      }
       console.log(cameraInputs);
       if (cameraInputs.length <= 1) {
         camera.style.display = 'none';
