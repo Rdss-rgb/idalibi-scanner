@@ -202,13 +202,13 @@ camera.addEventListener('click', () => {
 function switchcamera() {
   selectedCameraIndex = (selectedCameraIndex+1)%cameraInputs.length; // Toggle between 0 and 1
   // alert("cameraInputs.label: " + cameraInputs[selectedCameraIndex].label);
-  let aspectRatio = function() {
-    var buf = [];
-    for (i in cameraInputs[selectedCameraIndex].getCapabilities().aspectRatio) {
-      buf.push(`${i}: ${cameraInputs[selectedCameraIndex].getCapabilities().aspectRatio[i]}`);
-    }
-    return buf.join("\n");
-  }()
+  // let aspectRatio = function() {
+  //   var buf = [];
+  //   for (i in cameraInputs[selectedCameraIndex].getCapabilities().aspectRatio) {
+  //     buf.push(`${i}: ${cameraInputs[selectedCameraIndex].getCapabilities().aspectRatio[i]}`);
+  //   }
+  //   return buf.join("\n");
+  // }()
   // alert("aspectRatio: " + aspectRatio);
   startCameraDefaultResolution()
   setTimeout(() => {
