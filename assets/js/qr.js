@@ -26,7 +26,14 @@ window.addEventListener('load', function () {
         }
         alert("kind " + v.kind)
         alert(`facingMode: ${v.getCapabilities().facingMode}`)
-        alert(`aspectRatio: ${v.getCapabilities().aspectRatio}`)
+        let aspectRation = function() {
+          var buf = [];
+          for (i in v.getCapabilities().aspectRatio) {
+            buf.push(`${i}: ${v.getCapabilities().aspectRatio[i]}`);
+          }
+          return buf.join("\n");
+        }
+        alert(`aspectRatio: ${aspectRation}`)
         
         console.log("V: ", v.getCapabilities().facingMode)
         console.log("Cameras: ", cameraInputs)
