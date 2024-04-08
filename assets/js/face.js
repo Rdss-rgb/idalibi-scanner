@@ -175,10 +175,10 @@ function draw(canvasOutputCtx, canvasInputCtx) {
           stopCamera()
           postJSON(data);
         }, 2000);
-        setInterval(() => {
-          successbody.style.opacity = '1';
-          successimg.style.display = 'flex';
-        }, 2000);
+        // setInterval(() => {
+        //   successbody.style.opacity = '1';
+        //   successimg.style.display = 'flex';
+        // }, 2000);
 
       } else {
         // TODO display message
@@ -216,13 +216,13 @@ async function postJSON(data) {
         }
         else{
         // Login was ok
-        setInterval(() => {
-          centbody.style.display="none";
-        }, 2000);
-        setInterval(() => {
+        // setInterval(() => {
+          // centbody.style.display="none";
+        // }, 2000);
+        // setInterval(() => {
           successbody.style.opacity='1';
           successimg.style.display='flex';
-        }, 2000); 
+        // }, 2000); 
 
         }
   

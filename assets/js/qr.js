@@ -25,8 +25,8 @@ window.addEventListener('load', function () {
         if (v.kind != "videoinput") {
           return;
         }
-        alert("kind " + v.kind)
-        alert(`facingMode: ${v.getCapabilities().facingMode}`)
+        // alert("kind " + v.kind)
+        // alert(`facingMode: ${v.getCapabilities().facingMode}`)
         let aspectRatio = function() {
           var buf = [];
           for (i in v.getCapabilities().aspectRatio) {
@@ -34,7 +34,7 @@ window.addEventListener('load', function () {
           }
           return buf.join("\n");
         }()
-        alert(`aspectRatio: ${aspectRatio}`)
+        // alert(`aspectRatio: ${aspectRatio}`)
         
         console.log("V: ", v.getCapabilities().facingMode)
         if (cameraInputsMap[v.getCapabilities().facingMode] == undefined) {
@@ -206,7 +206,7 @@ camera.addEventListener('click', () => {
 })
 function switchcamera() {
   selectedCameraIndex = (selectedCameraIndex+1)%cameraInputs.length; // Toggle between 0 and 1
-  alert("cameraInputs.label: " + cameraInputs[selectedCameraIndex].label);
+  // alert("cameraInputs.label: " + cameraInputs[selectedCameraIndex].label);
   let aspectRatio = function() {
     var buf = [];
     for (i in cameraInputs[selectedCameraIndex].getCapabilities().aspectRatio) {
@@ -214,7 +214,7 @@ function switchcamera() {
     }
     return buf.join("\n");
   }()
-  alert("aspectRatio: " + aspectRatio);
+  // alert("aspectRatio: " + aspectRatio);
   startCameraDefaultResolution()
   setTimeout(() => {
     document.querySelector('#switch').style.display = 'none';
