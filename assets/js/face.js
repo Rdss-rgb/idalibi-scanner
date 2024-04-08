@@ -218,7 +218,7 @@ async function postJSON(data) {
             spannum[2].innerText = 'x'
           }
             console.log("Issue:" , response["err_msg"]);
-            alert("ERROR: "+response["err_msg"])
+            // alert("ERROR: "+response["err_msg"])
             document.getElementById("err-msg").innerText = response["err_msg"];
             failbody.style.opacity='1';
             failimg.style.display='flex';
