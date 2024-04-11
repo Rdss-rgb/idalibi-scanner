@@ -4,6 +4,7 @@ let cameraInputsMap = {};
 let cameraInputs = [];
 var selectedCameraIndex = -1;
 var defaultCamera = "environment"; //"environment" or "user";
+var zoom = 1.2;
 
 function decodeOnce(codeReader, selectedDeviceId) {
   codeReader.decodeFromInputVideoDevice(selectedDeviceId, 'video').then((result) => {
@@ -40,7 +41,7 @@ window.addEventListener('load', function () {
         if (cameraInputsMap[v.getCapabilities().facingMode] == undefined) {
           cameraInputsMap[v.getCapabilities().facingMode] = v;
         } else {
-          if (cameraInputsMap[v.getCapabilities().facingMode].getCapabilities().aspectRatio.max < v.getCapabilities().aspectRatio.max) {
+          if (v.getCapabilities().getVideoTracks()[0].getCapabilities().torch) {
             cameraInputsMap[v.getCapabilities().facingMode] = v;
           }
         }

@@ -45,7 +45,9 @@ function startCameraDefaultAll() {
   var idealResolution = { width: 320, height: 320 };
   console.log("FACING_MODES[facingMode]", FACING_MODES[facingMode]);
   cameraPhoto.startCamera(FACING_MODES[facingMode], idealResolution)
-    .then(() => {
+    .then((stream) => {
+      let track = stream.getVideoTracks()[0]
+      track.applyConstraints({zoom: zoom, focusMode: "continuous"});
       var log = `Camera started with default All`;
       console.log(log);
       runcamera1();
