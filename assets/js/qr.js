@@ -4,7 +4,7 @@ let cameraInputsMap = {};
 let cameraInputs = [];
 var selectedCameraIndex = -1;
 var defaultCamera = "environment"; //"environment" or "user";
-var zoom = 1.2;
+var zoom = 2.0;
 
 function decodeOnce(codeReader, selectedDeviceId) {
   codeReader.decodeFromInputVideoDevice(selectedDeviceId, 'video').then((result) => {
