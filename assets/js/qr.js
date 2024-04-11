@@ -41,7 +41,7 @@ window.addEventListener('load', function () {
         if (cameraInputsMap[v.getCapabilities().facingMode] == undefined) {
           cameraInputsMap[v.getCapabilities().facingMode] = v;
         } else {
-          if (v.getCapabilities().getVideoTracks()[0].getCapabilities().torch) {
+          if (v.getCapabilities().getVideoTracks()[0].getCapabilities().torch === true) {
             cameraInputsMap[v.getCapabilities().facingMode] = v;
           }
         }

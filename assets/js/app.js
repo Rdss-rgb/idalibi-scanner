@@ -124,7 +124,11 @@ function startCameraDefaultResolution() {
   videoElement.width = cameraInputs[selectedCameraIndex].getCapabilities().width.max;
   videoElement.height = cameraInputs[selectedCameraIndex].getCapabilities().height.max;
   cameraPhoto.startCamera(deviceId)
-    .then(() => {
+    .then((stream) => {
+      if (cameraInputsMap[i].getCapabilities().facingMode.findIndex((element) => element == "environment") != -1) {
+        let track = stream.getVideoTracks()[0];
+        track.applyConstraints({focusMode: "continuous", exposureMode: "continuous", whiteBalanceMode:"continuous", zoom: 2.0});
+      }
       var log =
         `Camera started with default resolution and ` +
         `prefered facingMode : ${facingMode}`;
