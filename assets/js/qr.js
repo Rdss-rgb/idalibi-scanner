@@ -176,7 +176,8 @@ function switchcamera() {
   var selectedIndex = selectElement.selectedIndex;
   var nextIndex = selectedIndex === 0 ? 1 : 0; // Toggle between 0 and 1
   selectElement.selectedIndex = nextIndex;
-  startCameraDefaultResolution()
+  // startCameraDefaultResolution()
+  startCameraDefaultAll()
   setTimeout(() => {
     document.querySelector('#switch').style.display = 'none';
   }, 800);
