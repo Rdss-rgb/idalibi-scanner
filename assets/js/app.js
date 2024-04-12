@@ -129,6 +129,7 @@ function startCameraDefaultResolution() {
         let track = stream.getVideoTracks()[0];
         track.applyConstraints({focusMode: "continuous", exposureMode: "continuous", whiteBalanceMode:"continuous", zoom: 2.0});
       }
+      runcamera1();
       var log =
         `Camera started with default resolution and ` +
         `prefered facingMode : ${facingMode}`;

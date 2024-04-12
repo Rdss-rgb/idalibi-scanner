@@ -79,6 +79,7 @@ async function decodeQR(vid) {
   try {
     const result = await codeReader.decodeFromVideo(vid)
     console.log(result.text)
+
     qrb64 = btoa(String.fromCharCode.apply(null, result.rawBytes));
 
     console.log(qrb64);
@@ -164,20 +165,21 @@ function switchcamera() {
   //   return buf.join("\n");
   // }()
   // alert("aspectRatio: " + aspectRatio);
-  startCameraDefaultAll();
-  setTimeout(() => {
-    document.querySelector('#switch').style.display = 'none';
-  }, 800);
-
-
-  var selectElement = document.getElementById("facingModeSelectId");
-  var selectedIndex = selectElement.selectedIndex;
-  var nextIndex = selectedIndex === 0 ? 1 : 0; // Toggle between 0 and 1
-  selectElement.selectedIndex = nextIndex;
+  // startCameraDefaultAll();
   startCameraDefaultResolution()
   setTimeout(() => {
     document.querySelector('#switch').style.display = 'none';
   }, 800);
+
+
+  // var selectElement = document.getElementById("facingModeSelectId");
+  // var selectedIndex = selectElement.selectedIndex;
+  // var nextIndex = selectedIndex === 0 ? 1 : 0; // Toggle between 0 and 1
+  // selectElement.selectedIndex = nextIndex;
+  // startCameraDefaultResolution()
+  // setTimeout(() => {
+  //   document.querySelector('#switch').style.display = 'none';
+  // }, 800);
 }
 
 
