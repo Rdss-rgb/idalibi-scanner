@@ -80,6 +80,7 @@ async function decodeQR(vid) {
     const result = await codeReader.decodeFromVideo(vid)
     console.log(result.text)
 
+
     qrb64 = btoa(String.fromCharCode.apply(null, result.rawBytes));
 
     console.log(qrb64);
