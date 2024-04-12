@@ -211,7 +211,7 @@ function switchcamera() {
   //   return buf.join("\n");
   // }()
   // alert("aspectRatio: " + aspectRatio);
-  startCameraDefaultResolution()
+  startCameraDefaultAll();
   setTimeout(() => {
     document.querySelector('#switch').style.display = 'none';
   }, 800);

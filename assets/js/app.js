@@ -272,8 +272,7 @@ btn_scan.addEventListener('click', async () => {
     }
   });
   // * FOR QR CODE
-  // startCameraDefaultAll();
-  startCameraDefaultResolution()
+  startCameraDefaultAll();
   decodeQR(videoElement);
 
   // * Disbale sleep
