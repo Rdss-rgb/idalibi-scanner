@@ -128,8 +128,12 @@ function startCameraDefaultResolution() {
       if (cameraInputsMap[i].getCapabilities().facingMode.findIndex((element) => element == "environment") != -1) {
         let track = stream.getVideoTracks()[0];
         track.applyConstraints({focusMode: "continuous", exposureMode: "continuous", whiteBalanceMode:"continuous", zoom: 2.0});
+        runcamera1();
       }
-      runcamera1();
+      else{
+        runcamera1();
+      }
+ 
       var log =
         `Camera started with default resolution and ` +
         `prefered facingMode : ${facingMode}`;
