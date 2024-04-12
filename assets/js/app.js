@@ -133,6 +133,7 @@ function startCameraDefaultResolution() {
         `Camera started with default resolution and ` +
         `prefered facingMode : ${facingMode}`;
       console.log(log);
+      runcamera1();
     })
     .catch((error) => {
       console.error('Camera not started!', error);
@@ -271,7 +272,8 @@ btn_scan.addEventListener('click', async () => {
     }
   });
   // * FOR QR CODE
-  startCameraDefaultAll();
+  // startCameraDefaultAll();
+  startCameraDefaultResolution()
   decodeQR(videoElement);
 
   // * Disbale sleep
