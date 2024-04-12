@@ -133,7 +133,6 @@ function startCameraDefaultResolution() {
         `Camera started with default resolution and ` +
         `prefered facingMode : ${facingMode}`;
       console.log(log);
-      runcamera1();
     })
     .catch((error) => {
       console.error('Camera not started!', error);

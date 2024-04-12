@@ -79,56 +79,9 @@ async function decodeQR(vid) {
   try {
     const result = await codeReader.decodeFromVideo(vid)
     console.log(result.text)
-
-    //  * Start of the byte decoding from the QR code result
-    // Initial storage for the raw bytes
-    var raw = "";
-    // Define the length and format of the data (Initial)
-    var length = 0;
-    var format = 0;
-
     qrb64 = btoa(String.fromCharCode.apply(null, result.rawBytes));
 
     console.log(qrb64);
-
-    // for (var i in result.rawBytes){
-    //   // Parse the value to int since the data result is still text
-    //   i = parseInt(i);
-    //   // Check for empty strings in the result and disregard
-    //   if (i == result.rawBytes.length - 1){
-    //     break;
-    //   }
-
-    //   // Initialize 2 variables as the temporary data holder while looping in the results
-    //   var val0 = toHex(result.rawBytes[i])
-    //   var val1 = toHex(result.rawBytes[i + 1])
-
-    //   // Get the QR Code Format (Refer to the QR code documentation regarding this)
-    //   if (i == 0){
-    //     format = val0[0];
-    //     length = "0x" + val0[1];
-    //     continue;
-    //   }else if(i == 1){
-    //     length += [val0[0]];
-    //     length = parseInt(length);
-    //   }
-    //   var tempByte = "0x" + val0[1] + val1[0];
-    //   // Compare the length of the original result vs the bytes processed
-    //   if(i != result.text.length -1){
-    //     tempByte += ", ";
-    //   }
-    //   var c = parseInt(i);
-    //   if (c % 10 == 0 && i != 0){
-    //     tempByte += "\n";
-    //   }
-    //   raw += tempByte
-
-    //   console.log("raw string: ", raw.toString());
-    //   console.log("formatted: ", raw.split("0x").join(""));
-    //   console.log("raw: ", raw.split("0x").join(""))
-    //   // Process the data accordingly after the bit shifts
-    // }
-
 
     // * End of the byte decoding from the QR code result
     document.querySelector('.qr-body').style.opacity = '0';
