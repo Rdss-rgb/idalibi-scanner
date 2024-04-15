@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scanner
+  namespace: idalibi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: scanner
+  template:
+    metadata:
+      labels:
+        app: scanner
+    spec:
+      containers:
+      - name: backend
+        image: integrityph/idalibi-scanner:latest
+        ports:
+        - containerPort: 80
+          name: http
+        env:
+        - name: UI_BASE_URL
+          value: "https://idalibi.com"
+      imagePullSecrets:
+      - name: regcred
+---
+# SERVICE
+apiVersion: v1
+kind: Service
+metadata:
+  name: scanner
+  namespace: idalibi
+spec:
+  ports:
+    - name: http
+      port: 80 # INGRESS PORT
+      targetPort: 80 # uADMIN PORT
+  selector:
+    app: scanner # APP NAME / DEPLOYMENT NAME

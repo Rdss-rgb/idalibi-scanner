@@ -14,7 +14,7 @@ var radiusY = 120; // Adjust the radius along Y-axis as needed
 var centerX = size / 2;
 var centerY = size / 2;
 
-
+let API_BASE_URL = "https://efe2-112-199-114-2.ngrok-free.app";
 
 const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
@@ -197,7 +197,7 @@ function draw(canvasOutputCtx, canvasInputCtx) {
 
 async function postJSON(data) {
 
-      const response = await fetch("https://efe2-112-199-114-2.ngrok-free.app/api/login/", {
+      const response = await fetch(API_BASE_URL + "/api/v2/login/", {
         method: "POST", // or 'PUT'
         headers: {
           "Content-Type": "application/json",
